@@ -67,3 +67,5 @@ core/
     └── auth.model.ts              ✅ modelo de usuario/sesión
 
     
+
+    mkdir -p src/app/features/post/{components,services,models}
