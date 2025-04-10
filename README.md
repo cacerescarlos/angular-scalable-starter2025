@@ -4,56 +4,66 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Development server
 
-To start a local development server, run:
+🧱 1. Crear carpetas base (estructura completa)
+# Estructura general
+mkdir -p src/app/{core,shared,state,features}
 
-```bash
-ng serve
-```
+# Layout dentro de core
+mkdir -p src/app/core/layout
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# Estructura base de dashboard como primera feature
+mkdir -p src/app/features/dashboard/{pages,components,services,models}
 
-## Code scaffolding
+# (opcional) Carpeta para una futura feature usuarios
+mkdir -p src/app/features/usuarios/{pages,components,services,models}
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+# Estructura base para más features de ejemplo
+mkdir -p src/app/features/productos/{pages,components,services,models}
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+src/
+└── app/
+    ├── core/
+    │   └── layout/
+    ├── shared/
+    ├── state/
+    ├── features/
+    │   ├── dashboard/
+    │   │   ├── pages/
+    │   │   ├── components/
+    │   │   ├── services/
+    │   │   ├── models/
+    │   ├── usuarios/
+    │   │   ├── pages/
+    │   │   ├── components/
+    │   │   ├── services/
+    │   │   ├── models/
+    │   └── productos/
+    │       ├── pages/
+    │       ├── components/
+    │       ├── services/
+    │       ├── models/
 
-## Building
 
-To build the project run:
+Tener 2 layouts distintos:
 
-```bash
-ng build
-```
+✅ MainLayoutComponent
+Para admin/dashboard (como el que ya tienes, con header + sidebar).
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+✅ PublicLayoutComponent
+Para clientes, landing, login, etc. – sin sidebar, más limpio.
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
+core/
+├── guards/
+│   ├── auth.guard.ts              ✅ guard funcional
+│   ├── admin.guard.ts             ✅ opcional
+│   └── guest.guard.ts             ✅ opcional
+├── services/
+│   └── auth.service.ts            ✅ nueva base reactiva
+└── models/
+    └── auth.model.ts              ✅ modelo de usuario/sesión
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+    
